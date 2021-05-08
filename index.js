@@ -126,6 +126,9 @@ new Vue({
       comment_area_visible: "no",
       text_area_comment: "",
       comments_array: [],
+      for_additional_information: true,
+      hide_button: false,
+      hide_input_area_for_log_in: false,
     };
   },
   mounted() {
@@ -202,8 +205,14 @@ new Vue({
           img_of_user: random_img,
         });
         this.page_views = true;
+        this.for_additional_information = false;
+        this.hide_button = true;
+        this.hide_input_area_for_log_in = true;
+
         $("#add-user-in-author-array").modal("hide");
-        // riješiti da je Join disable kada se jednom joinam i OBRISATI INPUTE
+        this.author_user_name = "";
+        this.author_user_password = "";
+        this.author_user_email = "";
       }
     },
     log_in() {
@@ -226,9 +235,12 @@ new Vue({
       });
       if (user_found == true) {
         this.page_views = true;
-        this.log_in_message_for_incorect_data = false;
+        this.for_additional_information = false;
+        this.hide_button = true;
+        this.hide_input_area_for_log_in = true;
       } else {
         this.log_in_message_for_incorect_data = true;
+        this.log_in_message_for_incorect_data = false;
       }
       (this.log_in_email = ""), (this.log_in_password = "");
     },
@@ -255,6 +267,13 @@ new Vue({
       });
       (this.text_area_comment = ""), (this.comment_area_visible = "no");
       this.show_the_message();
+    },
+    log_out() {
+      this.log_in_array = [];
+      this.for_additional_information = true;
+      this.page_views = false;
+      this.hide_button = false;
+      this.hide_input_area_for_log_in = false;
     },
   },
 });

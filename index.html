@@ -36,21 +36,29 @@
               placeholder="Email"
               name="email"
               v-model="log_in_email"
+              v-show="hide_input_area_for_log_in==false"
             />
             <input
               type="text"
               placeholder="Password"
               name="psw"
               v-model="log_in_password"
+              v-show="hide_input_area_for_log_in==false"
             />
+            <button type="button" v-show="hide_button==true" @click="log_out()">
+              Log Out
+            </button>
             <button
+              v-show="hide_button==false"
               type="button"
               data-toggle="modal"
               data-target="#add-user-in-author-array"
             >
               Join
             </button>
-            <button type="button" @click="log_in()">Login</button>
+            <button type="button" @click="log_in()" v-show="hide_button==false">
+              Login
+            </button>
           </form>
           <p
             class="text-danger"
@@ -86,7 +94,7 @@
         <br />
         <h4>NEW RELEASES TAGGED "NONFICTION"</h4>
         <hr />
-        <h5 class="text-danger">
+        <h5 class="text-danger" v-show="for_additional_information==true">
           FOR ADDITIONAL INFORMATION, YOU NEED TO LOG IN OR REGISTER.
         </h5>
         <!-- Slika, naslov i text -->
