@@ -116,7 +116,7 @@
           <div class="card col-sm-10">
             <div class="card-body">
               <h3>{{element.title}}</h3>
-              <p>Author by: {{element.name_of_author}} {{index_book}}</p>
+              <p>Author by: {{element.name_of_author}}</p>
               <p>{{element.text_of_description}}</p>
               <i class="fas fa-comments" @click="show_comments(index_book)"></i>
             </div>
@@ -141,7 +141,7 @@
                 />
               </div>
               <div class="col-sm-8">
-                <p>Commented by: {{item.user_name}} {{index_book}}</p>
+                <p>Commented by: {{item.user_name}}</p>
                 <p>{{item.comment_tetxt}}</p>
               </div>
               <hr />
